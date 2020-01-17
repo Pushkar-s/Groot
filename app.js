@@ -53,10 +53,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/user', user);
-app.use('/payment', payment);
-app.use('/pdf', pdf);
-app.use('/sheet', sheet);
-app.use('/cryptex', cryptex);
 app.use('/*', ex);
 
 /// catch 404 and forwarding to error handler
@@ -70,29 +66,29 @@ app.use(function(req, res, next) {
 
 // development error handler
 // will print stacktrace
-if (app.get('env') === 'development') {
-	app.use(function(err, req, res, next) {
-	  res.status(err.status || 500);
-	  res.render('error_dev', {
-		message: err.message,
-		error: err
-	  });
-	});
-} else {
-	// production error handler
-	// no stacktraces leaked to user
-	app.use(function(err, req, res, next) {
-		res.status(err.status || 500);
-		if(err.status === 401){
-			res.end(err.message);
-		  //   res.render('error_401', {
-		  //     message: err.message,
-		  //     "isLoggedIn" : isLoggedIn,
-		  //   });
-		}
-		res.redirect('/');
-	});
-}
+// if (app.get('env') === 'development') {
+// 	app.use(function(err, req, res, next) {
+// 	  res.status(err.status || 500);
+// 	  res.render('error_dev', {
+// 		message: err.message,
+// 		error: err
+// 	  });
+// 	});
+// } else {
+// 	// production error handler
+// 	// no stacktraces leaked to user
+// 	app.use(function(err, req, res, next) {
+// 		res.status(err.status || 500);
+// 		if(err.status === 401){
+// 			res.end(err.message);
+// 		  //   res.render('error_401', {
+// 		  //     message: err.message,
+// 		  //     "isLoggedIn" : isLoggedIn,
+// 		  //   });
+// 		}
+// 		res.redirect('/');
+// 	});
+// }
 
 app.listen("5000",process.env.IP,function(){
 	     console.log("Connected");
