@@ -24,6 +24,11 @@
     "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
-    "mongoose": "^5.8.7"
+    "locus": "^2.0.4",
+    "mongoose": "^5.8.7",
+    "passport": "^0.4.1",
+    "path": "^0.12.7",
+    "request": "^2.88.0",
+    "serve-favicon": "^2.5.0"
   }
 }

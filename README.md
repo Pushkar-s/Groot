@@ -1,2 +1,2 @@
-# HACKDAY Hackathon
-project by :- Harsh Gupta, Akhil KAshyap, Naman Indranil , Pushkar Soni
+# HACKDAY Hackathon : GROOT
+project by :- Harsh Gupta, Akhil Kashyap, Naman Indranil , Pushkar Soni

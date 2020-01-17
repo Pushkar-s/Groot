@@ -1,31 +1,25 @@
-require('dotenv').config();
+// require('dotenv').config();
 var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
+// var path = require('path');
+// var favicon = require('serve-favicon');
+// var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var authenticate = require('./authenticate');
+var User = require("./schema/user.js");
+const request = require('request');
 
 
 // database connect
-var DBconfig = require('./config/dbconfig')
-//mongoose.Promise = global.Promise;
-//mongoose.connect('mongodb://localhost/plinth', { useNewUrlParser:true ,useCreateIndex:true,useUnifiedTopology:true, useFindAndModify: false });
-mongoose.connect(DBconfig.url, { useNewUrlParser:true ,useCreateIndex:true,useUnifiedTopology:true, useFindAndModify: false });
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb+srv://Hack:Hack123@hackday-1hwua.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser:true ,useCreateIndex:true,useUnifiedTopology:true, useFindAndModify: false });
 var db = mongoose.connection;
 db.on('error',console.error.bind(console, 'connection error:'));
 db.once('open', function(){
-  console.log('connected to db server successfully');
-});
+ console.log('connected to db server successfully');
+ });
 // done
-
-
-var routes = require('./routes/index');
-var user = require('./routes/user');
-var ex = require('./routes/404');
 
 var app = express();
 
@@ -35,63 +29,68 @@ app.use(passport.initialize());
 
 
 // view engine setup
-app.set('views', path.join(__dirname, 'public'));
-app.set('view engine', 'ejs');
+app.use(express.static(__dirname+"/public"));
+ app.set('view engine', 'ejs');
 
 
-app.use('*/js', express.static(path.join(__dirname, 'public/js')))
-app.use('*/css', express.static(path.join(__dirname, 'public/css')))
-app.use('*/media', express.static(path.join(__dirname, 'public/media')))
-app.use('*/fonts', express.static(path.join(__dirname, 'public/fonts')))
+// app.use('*/js', express.static(path.join(__dirname, 'public/js')));
+// app.use('*/css', express.static(path.join(__dirname, 'public/css')));
+// app.use('*/media', express.static(path.join(__dirname, 'public/media')));
+// app.use('*/fonts', express.static(path.join(__dirname, 'public/fonts')));
 
-app.use(logger('dev'));
-app.use(favicon(path.join(__dirname, 'public/media/fav', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'public/media/fav', 'favicon.ico')));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(cookieParser());
+// app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/user', user);
-app.use('/*', ex);
-
-/// catch 404 and forwarding to error handler
-app.use(function(req, res, next) {
-	var err = new Error('Not Found');
-	err.status = 404;
-	next(err);
+//Routes=================================================================================
+app.get('/', function(req,res){
+    console.log("index page");
+    res.render("index.ejs");
 });
 
-/// error handlers
+app.get('/search', function(req,res){
+    console.log("index page");
+    res.render("index.ejs");
+});
 
-// development error handler
-// will print stacktrace
-// if (app.get('env') === 'development') {
-// 	app.use(function(err, req, res, next) {
-// 	  res.status(err.status || 500);
-// 	  res.render('error_dev', {
-// 		message: err.message,
-// 		error: err
-// 	  });
-// 	});
-// } else {
-// 	// production error handler
-// 	// no stacktraces leaked to user
-// 	app.use(function(err, req, res, next) {
-// 		res.status(err.status || 500);
-// 		if(err.status === 401){
-// 			res.end(err.message);
-// 		  //   res.render('error_401', {
-// 		  //     message: err.message,
-// 		  //     "isLoggedIn" : isLoggedIn,
-// 		  //   });
-// 		}
-// 		res.redirect('/');
-// 	});
-// }
+app.get('/sites', function(req,res){
+    console.log("index page");
+    res.render("index.ejs");
+});
 
-app.listen("5000",process.env.IP,function(){
+app.get('/login', function(req,res){
+    console.log("index page");
+    res.render("index.ejs");
+});
+
+app.get('/chat', function(req,res){
+    console.log("index page");
+    res.render("index.ejs");
+});
+
+app.get('/blog', function(req,res){
+    console.log("index page");
+    res.render("index.ejs");
+});
+
+app.get("/results",function(req,res){
+    var search_term =  req.query.search_var_of_ejs; // note
+    // var url = 'http://www.omdbapi.com/?s=' + search_term +'&apikey=thewdb';
+    var url = 'https://www.googleapis.com/customsearch/v1?key=AIzaSyD98gZC34YDhYUl0xLo5Utl1p7s84MsOpY&cx=000641635650089593781:dnwnsyznkib&q='+ 'eco friendly '+ search_term;
+    request(url, function (error, response, body) {
+        eval(require('locus'));
+      console.error('error:', error);
+      console.log('statusCode:', response && response.statusCode);
+      var data = JSON.parse(body);
+      res.render("results.ejs",{data:data});
+    });
+
+});
+
+//=======================================================================================
+
+app.listen("3000",process.env.IP,function(){
 	     console.log("Connected");
 });
-
-module.exports = app;
