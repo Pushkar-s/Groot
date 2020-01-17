@@ -50,29 +50,19 @@ app.get('/', function(req,res){
     res.render("index.ejs");
 });
 
-app.get('/search', function(req,res){
-    console.log("index page");
-    res.render("index.ejs");
-});
-
-app.get('/sites', function(req,res){
-    console.log("index page");
-    res.render("index.ejs");
+app.get('/nearus', function(req,res){
+    console.log("nearus page");
+    res.render("nearus.ejs");
 });
 
 app.get('/login', function(req,res){
-    console.log("index page");
-    res.render("index.ejs");
+    console.log("login page");
+    res.render("login.ejs");
 });
 
-app.get('/chat', function(req,res){
-    console.log("index page");
-    res.render("index.ejs");
-});
-
-app.get('/blog', function(req,res){
-    console.log("index page");
-    res.render("index.ejs");
+app.get('/planetsaver', function(req,res){
+    console.log("planetsaver page");
+    res.render("planetsaver.ejs");
 });
 
 app.get("/results",function(req,res){
@@ -80,7 +70,7 @@ app.get("/results",function(req,res){
     // var url = 'http://www.omdbapi.com/?s=' + search_term +'&apikey=thewdb';
     var url = 'https://www.googleapis.com/customsearch/v1?key=AIzaSyD98gZC34YDhYUl0xLo5Utl1p7s84MsOpY&cx=000641635650089593781:dnwnsyznkib&q='+ 'eco friendly '+ search_term;
     request(url, function (error, response, body) {
-        eval(require('locus'));
+        // eval(require('locus'));
       console.error('error:', error);
       console.log('statusCode:', response && response.statusCode);
       var data = JSON.parse(body);
