@@ -31,6 +31,7 @@
 	font-weight: 300;
 	font-style: normal;
 }
+
 .up-down-arrow {
 	animation: MoveUpDown 2s linear infinite;
 	left: 0;
@@ -702,7 +703,7 @@ p.tools-icon__text span {
 	padding: 0;
 }
 .panel-body ul li {
-	background: url(./media/arrow2.png) no-repeat scroll 0 .3em;
+	background: url(../media/arrow2.png) no-repeat scroll 0 .3em;
 	font-size: 14px;
 	padding: 0 0 11px 18px;
 	list-style: none;
@@ -726,7 +727,7 @@ p.tools-icon__text span {
 	margin-top: 90px;
 }
 .banner-career {
-	background: #c3e3fa url(./media/career-banner.jpg) no-repeat;
+	background: #c3e3fa url(../media/career-banner.jpg) no-repeat;
 	float: left;
 	height: 427px;
 	margin-top: -4px;
@@ -736,7 +737,7 @@ p.tools-icon__text span {
 	margin-bottom: 30px;
 }
 .partner-career {
-	background: #f3ffff url(./media/partner-banner.jpg) no-repeat;
+	background: #f3ffff url(../media/partner-banner.jpg) no-repeat;
 	float: left;
 	height: 300px;
 	margin-top: -4px;
@@ -745,7 +746,7 @@ p.tools-icon__text span {
 	margin-bottom: 30px;
 }
 .fms-banner {
-	background: #214c6c url(./media/fmsbanner.jpg) no-repeat;
+	background: #214c6c url(../media/fmsbanner.jpg) no-repeat;
 	float: left;
 	height: 300px;
 	margin-top: 86px;
@@ -753,7 +754,7 @@ p.tools-icon__text span {
 	background-position: center;
 }
 .time-table-banner {
-	background: #214c6c url(./media/timetable-banner.png) no-repeat;
+	background: #214c6c url(../media/timetable-banner.png) no-repeat;
 	float: left;
 	height: 300px;
 	margin-top: 86px;
@@ -761,7 +762,7 @@ p.tools-icon__text span {
 	background-position: center;
 }
 .exam-result-banner {
-	background: #214c6c url(./media/timetable-banner.png) no-repeat;
+	background: #214c6c url(../media/timetable-banner.png) no-repeat;
 	float: left;
 	height: 300px;
 	margin-top: 86px;
@@ -769,7 +770,7 @@ p.tools-icon__text span {
 	background-position: center;
 }
 .teacher-app-banner {
-	background: #57c2ec url(./media/teacher-app-banner.jpg) no-repeat;
+	background: #57c2ec url(../media/teacher-app-banner.jpg) no-repeat;
 	float: left;
 	height: 200px;
 	margin-top: 90px;
@@ -779,7 +780,7 @@ p.tools-icon__text span {
 	margin-bottom: 0;
 }
 .parent-app-banner {
-	background: #44b889 url(./media/parent-app-banner.jpg) no-repeat;
+	background: #44b889 url(../media/parent-app-banner.jpg) no-repeat;
 	float: left;
 	height: 200px;
 	margin-top: 90px;
@@ -789,7 +790,7 @@ p.tools-icon__text span {
 	margin-bottom: 0;
 }
 .fees-banner {
-	background: #214c6c url(./media/fees-banner.jpg) no-repeat;
+	background: #214c6c url(../media/fees-banner.jpg) no-repeat;
 	float: left;
 	height: 340px;
 	margin-top: 90px;
@@ -799,7 +800,7 @@ p.tools-icon__text span {
 	margin-bottom: 0;
 }
 .base-erp-banner {
-	background: #6b8ea4 url(./media/base-erp-banner.jpg) no-repeat;
+	background: #6b8ea4 url(../media/base-erp-banner.jpg) no-repeat;
 	float: left;
 	height: 340px;
 	margin-top: 90px;
@@ -808,7 +809,7 @@ p.tools-icon__text span {
 	margin-bottom: 0;
 }
 .admission-crm-banner {
-	background: #13a1a3 url(./media/admission-crm-banner.jpg) no-repeat;
+	background: #13a1a3 url(../media/admission-crm-banner.jpg) no-repeat;
 	float: left;
 	height: 296px;
 	margin-top: 90px;
@@ -817,7 +818,7 @@ p.tools-icon__text span {
 	margin-bottom: 0;
 }
 .attendance-banner {
-	background: #89d5e3 url(./media/attendance-banner.jpg) no-repeat;
+	background: #89d5e3 url(../media/attendance-banner.jpg) no-repeat;
 	float: left;
 	height: 296px;
 	margin-top: 90px;
@@ -826,7 +827,7 @@ p.tools-icon__text span {
 	margin-bottom: 0;
 }
 .assessment-banner {
-	background: #83cc85 url(./media/online-assessment-banner.jpg) no-repeat;
+	background: #83cc85 url(../media/online-assessment-banner.jpg) no-repeat;
 	float: left;
 	height: 296px;
 	margin-top: 90px;
@@ -835,7 +836,7 @@ p.tools-icon__text span {
 	margin-bottom: 0;
 }
 .transport-banner {
-	background: #52677a url(./media/transport-solution.jpg) no-repeat;
+	background: #52677a url(../media/transport-solution.jpg) no-repeat;
 	float: left;
 	height: 296px;
 	margin-top: 90px;
@@ -1091,7 +1092,7 @@ a.form-fill {
 	width: 100%;
 }
 #how-itbanner-panel .how-it-banner {
-	background: url(./media/howitimg.png) no-repeat scroll center center;
+	background: url(../media/howitimg.png) no-repeat scroll center center;
 	background-size: cover;
 	float: left;
 	width: 100%;
@@ -1104,7 +1105,7 @@ a.form-fill {
 	padding: 0 0;
 }
 #how-toapply-banner .how-toapply-banner {
-	background: url(./media/howtoapply.png) no-repeat scroll center center;
+	background: url(../media/howtoapply.png) no-repeat scroll center center;
 	background-size: cover;
 	float: left;
 	width: 100%;
@@ -1190,7 +1191,7 @@ img.f-b-slides:hover {
 .home-heroContent {
 	width: 100%;
 	height: 100vh;
-	background: url(./images/patternBackground-storyHero.svg) no-repeat;
+	background: url(../media/patternBackground-storyHero.svg) no-repeat;
 	background-position: bottom;
 	background-size: cover;
 	color: #fff;
@@ -1612,7 +1613,7 @@ i.fa.fa-arrow-right.fa-right-quiz {
 	margin-top: 0;
 	margin-right: 0;
 	text-align: left;
-	background: transparent url(./media/social-icon.png) 0 0 no-repeat;
+	background: transparent url(../media/social-icon.png) 0 0 no-repeat;
 	background-size: 200px;
 }
 #facebook {
@@ -1954,7 +1955,7 @@ p.copy-right {
 	margin: 0 0 10px;
 }
 .teck-edu ul li {
-	background: rgba(0, 0, 0, 0) url(./media/list-bg-style-2.png) no-repeat scroll 0 .5em;
+	background: rgba(0, 0, 0, 0) url(../media/list-bg-style-2.png) no-repeat scroll 0 .5em;
 	float: left;
 	font-size: 14px;
 	line-height: 21px;
@@ -3085,7 +3086,7 @@ h6,
 .fees-managment,
 .time-table {
 	display: inline-block;
-	background: url(./media/imgsprite.png) no-repeat;
+	background: url(../media/imgsprite.png) no-repeat;
 	overflow: hidden;
 	text-indent: -9999px;
 	text-align: left;
