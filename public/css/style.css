@@ -3710,3 +3710,8 @@ form {
 	padding-left: 5px;
 	font-size: 10px;
 }
+
+.cse .gsc-search-button-v2, .gsc-search-button-v2{
+    padding-left: 30px;
+    margin-left: 30px;
+}

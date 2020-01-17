@@ -50,6 +50,11 @@ app.get('/', function(req,res){
     res.render("index.ejs");
 });
 
+app.get('/chat', function(req,res){
+    console.log("chat page");
+    res.render("chat.ejs");
+});
+
 app.get('/nearus', function(req,res){
     console.log("nearus page");
     res.render("nearus.ejs");
@@ -81,6 +86,6 @@ app.get("/results",function(req,res){
 
 //=======================================================================================
 
-// app.listen("3000",process.env.IP,function(){
-// 	     console.log("Connected");
-// });
+app.listen("3000",process.env.IP,function(){
+	     console.log("Connected");
+});
