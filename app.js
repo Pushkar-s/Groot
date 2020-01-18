@@ -33,16 +33,8 @@ app.use(express.static(__dirname+"/public"));
  app.set('view engine', 'ejs');
 
 
-// app.use('*/js', express.static(path.join(__dirname, 'public/js')));
-// app.use('*/css', express.static(path.join(__dirname, 'public/css')));
-// app.use('*/media', express.static(path.join(__dirname, 'public/media')));
-// app.use('*/fonts', express.static(path.join(__dirname, 'public/fonts')));
-
-// app.use(favicon(path.join(__dirname, 'public/media/fav', 'favicon.ico')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
 
 //Routes=================================================================================
 app.get('/', function(req,res){
@@ -70,9 +62,11 @@ app.get('/planetsaver', function(req,res){
     res.render("planetsaver.ejs");
 });
 
+
+// USING GOOGLE SEARCH API 
 app.get("/results",function(req,res){
     var search_term =  req.query.search_var_of_ejs; // note
-    // var url = 'http://www.omdbapi.com/?s=' + search_term +'&apikey=thewdb';
+    // URL - API KEY AND CX ID 
     var url = 'https://www.googleapis.com/customsearch/v1?key=AIzaSyD98gZC34YDhYUl0xLo5Utl1p7s84MsOpY&cx=000641635650089593781:dnwnsyznkib&q='+ 'eco friendly '+ search_term;
     request(url, function (error, response, body) {
         // eval(require('locus'));
@@ -84,8 +78,41 @@ app.get("/results",function(req,res){
 
 });
 
+
+
+// SOCKET.IO CHAT BOX 
 //=======================================================================================
 
-app.listen("3000",process.env.IP,function(){
-	     console.log("Connected");
+// server = app.listen("3000",process.env.IP,function(){
+// 	     console.log("Connected");
+// });
+
+server = app.listen("3000",process.env.IP,function(){
+    console.log("connected");
 });
+
+// 
+const io = require("socket.io")(server);
+//listen on every connection
+io.on('connection', (socket) => {
+	console.log('New user connected')
+
+	//default username
+	socket.username = "Anonymous"
+
+    //listen on change_username
+    socket.on('change_username', (data) => {
+        socket.username = data.username
+    })
+
+    //listen on new_message
+    socket.on('new_message', (data) => {
+        //broadcast the new message
+        io.sockets.emit('new_message', {message : data.message, username : socket.username});
+    })
+
+    //listen on typing
+    socket.on('typing', (data) => {
+    	socket.broadcast.emit('typing', {username : socket.username})
+    })
+})
